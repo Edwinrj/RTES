@@ -1,0 +1,17 @@
+
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Laboratorios RTOS"
+  navbar:
+    left:
+      - href: demo.qmd
+        text: Demo
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    css: styles.css

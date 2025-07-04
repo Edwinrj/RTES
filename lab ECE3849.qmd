@@ -1,0 +1,122 @@
+
+---
+title: "Demo de Quarto: Laboratorio RTOS"
+author: "Tu Nombre"
+date: today
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+    theme: cosmo
+    css: styles.css
+editor: visual
+---
+
+# Introducción
+
+Este documento demuestra las capacidades principales de **Quarto** usando markdown extendido y bloques especiales.
+
+## 1. Texto enriquecido
+
+Puedes **negrita**, _cursiva_, `monoespaciado`, ~~tachado~~, [enlaces](https://quarto.org) y emojis 😄.
+
+::: note
+Esto es una **nota** para el lector.
+:::
+
+::: warning
+Ten cuidado con los punteros nulos.
+:::
+
+> Esta es una cita importante sobre programación embebida.
+
+## 2. Listas y tablas
+
+### Lista con checkboxes
+
+- [x] Tareas completadas
+- [ ] Pendientes
+- [ ] Verificar GPIO
+
+### Tabla
+
+| Componente | Cantidad | Código |
+|------------|----------|--------|
+| Resistor   | 3        | R1–R3  |
+| LED        | 2        | D1–D2  |
+| Capacitor  | 1        | C1     |
+
+## 3. Código en C
+
+```c
+#include <stdint.h>
+#include "tm4c1294ncpdt.h"
+
+int main(void) {
+    SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5; // Habilitar puerto F
+    GPIO_PORTF_DIR_R |= 0x02;                // PF1 como salida
+    GPIO_PORTF_DEN_R |= 0x02;                // Habilitar PF1
+    while(1){
+        GPIO_PORTF_DATA_R ^= 0x02;           // Toggle LED
+        for(volatile int i=0; i<100000; i++); // Retardo
+    }
+}
+```
+
+## 4. Código en Python
+
+```python
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3], [1, 4, 9])
+plt.title("Gráfico de prueba")
+plt.show()
+```
+
+## 5. Gráficos con Python
+
+```{python}
+#| echo: true
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4]
+y = [10,20,25,30]
+plt.plot(x, y, marker='o')
+plt.title("Uso de CPU")
+plt.xlabel("Tiempo")
+plt.ylabel("Porcentaje")
+plt.grid(True)
+plt.show()
+```
+
+## 6. Matemáticas
+
+Fórmulas matemáticas:
+
+$$
+f(x) = \int_{-\infty}^\infty e^{-x^2} dx
+$$
+
+Inline como $E = mc^2$ o $a^2 + b^2 = c^2$
+
+## 7. Fragmento colapsable
+
+::: {.callout-tip collapse=true}
+### Tip oculto
+Este contenido está colapsado por defecto. Haz clic para expandirlo.
+:::
+
+## 8. Bash
+
+```{bash}
+echo "Hola desde bash"
+```
+
+# Conclusión
+
+Este documento demostró lo que Quarto puede hacer con:
+- Markdown enriquecido
+- Código en C/Python/Bash
+- Tablas y gráficos
+- Math y LaTeX
+- Fragmentos colapsables
