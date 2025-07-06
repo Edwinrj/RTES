@@ -15,5 +15,3 @@ format:
     theme: cosmo
     toc: true
     css: styles.css
-  pdf:
-    documentclass: article
