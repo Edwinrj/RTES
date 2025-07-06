@@ -15,6 +15,21 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install Python + Jupyter
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          python3 -m pip install --upgrade pip
+          python3 -m pip install jupyter matplotlib
+
+      - name: Install TinyTeX for PDF rendering
+        run: |
+          wget -qO- https://yihui.org/tinytex/install-unx.sh | sh
+          echo "export PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+          echo "TEXLIVE_INSTALL_NO_CONTEXT_CACHE=1" >> $GITHUB_ENV
+          echo "TEXMFHOME=$HOME/.TinyTeX/texmf-local" >> $GITHUB_ENV
+          echo "$HOME/bin" >> $GITHUB_PATH
+
       - name: Render site
         run: quarto render
 
@@ -22,4 +37,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_sitr
+          publish_dir: ./_site
