@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "lab ECE3849.html",
+    "href": "lab ECE3849.html",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "Este documento demuestra las capacidades principales de Quarto usando markdown extendido y bloques especiales.\n\n\nPuedes negrita, cursiva, monoespaciado, tachado, enlaces y emojis 😄.\n\nEsto es una nota para el lector.\n\n\nTen cuidado con los punteros nulos.\n\n\nEsta es una cita importante sobre programación embebida.\n\n\n\n\n\n\n\nTareas completadas\nPendientes\nVerificar GPIO\n\n\n\n\n\n\n\nComponente\nCantidad\nCódigo\n\n\n\n\nResistor\n3\nR1–R3\n\n\nLED\n2\nD1–D2\n\n\nCapacitor\n1\nC1\n\n\n\n\n\n\n\n#include &lt;stdint.h&gt;\n#include \"tm4c1294ncpdt.h\"\n\nint main(void) {\n    SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5; // Habilitar puerto F\n    GPIO_PORTF_DIR_R |= 0x02;                // PF1 como salida\n    GPIO_PORTF_DEN_R |= 0x02;                // Habilitar PF1\n    while(1){\n        GPIO_PORTF_DATA_R ^= 0x02;           // Toggle LED\n        for(volatile int i=0; i&lt;100000; i++); // Retardo\n    }\n}\n\n\n\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3], [1, 4, 9])\nplt.title(\"Gráfico de prueba\")\nplt.show()\n\n\n\n\n\nCode\nimport matplotlib.pyplot as plt\n\nx = [1,2,3,4]\ny = [10,20,25,30]\nplt.plot(x, y, marker='o')\nplt.title(\"Uso de CPU\")\nplt.xlabel(\"Tiempo\")\nplt.ylabel(\"Porcentaje\")\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nFórmulas matemáticas:\n\\[\nf(x) = \\int_{-\\infty}^\\infty e^{-x^2} dx\n\\]\nInline como \\(E = mc^2\\) o \\(a^2 + b^2 = c^2\\)\n\n\n\n\n\n\n\n\n\nTip oculto\n\n\n\n\n\nEste contenido está colapsado por defecto. Haz clic para expandirlo.\n\n\n\n\n\n\necho \"Hola desde bash\""
+  },
+  {
+    "objectID": "lab ECE3849.html#texto-enriquecido",
+    "href": "lab ECE3849.html#texto-enriquecido",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "Puedes negrita, cursiva, monoespaciado, tachado, enlaces y emojis 😄.\n\nEsto es una nota para el lector.\n\n\nTen cuidado con los punteros nulos.\n\n\nEsta es una cita importante sobre programación embebida."
+  },
+  {
+    "objectID": "lab ECE3849.html#listas-y-tablas",
+    "href": "lab ECE3849.html#listas-y-tablas",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "Tareas completadas\nPendientes\nVerificar GPIO\n\n\n\n\n\n\n\nComponente\nCantidad\nCódigo\n\n\n\n\nResistor\n3\nR1–R3\n\n\nLED\n2\nD1–D2\n\n\nCapacitor\n1\nC1"
+  },
+  {
+    "objectID": "lab ECE3849.html#código-en-c",
+    "href": "lab ECE3849.html#código-en-c",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "#include &lt;stdint.h&gt;\n#include \"tm4c1294ncpdt.h\"\n\nint main(void) {\n    SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5; // Habilitar puerto F\n    GPIO_PORTF_DIR_R |= 0x02;                // PF1 como salida\n    GPIO_PORTF_DEN_R |= 0x02;                // Habilitar PF1\n    while(1){\n        GPIO_PORTF_DATA_R ^= 0x02;           // Toggle LED\n        for(volatile int i=0; i&lt;100000; i++); // Retardo\n    }\n}"
+  },
+  {
+    "objectID": "lab ECE3849.html#código-en-python",
+    "href": "lab ECE3849.html#código-en-python",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "import matplotlib.pyplot as plt\nplt.plot([1, 2, 3], [1, 4, 9])\nplt.title(\"Gráfico de prueba\")\nplt.show()"
+  },
+  {
+    "objectID": "lab ECE3849.html#gráficos-con-python",
+    "href": "lab ECE3849.html#gráficos-con-python",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "Code\nimport matplotlib.pyplot as plt\n\nx = [1,2,3,4]\ny = [10,20,25,30]\nplt.plot(x, y, marker='o')\nplt.title(\"Uso de CPU\")\nplt.xlabel(\"Tiempo\")\nplt.ylabel(\"Porcentaje\")\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "lab ECE3849.html#matemáticas",
+    "href": "lab ECE3849.html#matemáticas",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "Fórmulas matemáticas:\n\\[\nf(x) = \\int_{-\\infty}^\\infty e^{-x^2} dx\n\\]\nInline como \\(E = mc^2\\) o \\(a^2 + b^2 = c^2\\)"
+  },
+  {
+    "objectID": "lab ECE3849.html#fragmento-colapsable",
+    "href": "lab ECE3849.html#fragmento-colapsable",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "Tip oculto\n\n\n\n\n\nEste contenido está colapsado por defecto. Haz clic para expandirlo."
+  },
+  {
+    "objectID": "lab ECE3849.html#bash",
+    "href": "lab ECE3849.html#bash",
+    "title": "Demo de Quarto con workflow: Laboratorio RTOS",
+    "section": "",
+    "text": "echo \"Hola desde bash\""
+  }
+]
