@@ -1,6 +1,6 @@
 
 ---
-title: "Demo de Quarto: Laboratorio RTOS"
+title: "Demo de Quarto con workflow: Laboratorio RTOS"
 author: "Tu Nombre"
 date: today
 format:
